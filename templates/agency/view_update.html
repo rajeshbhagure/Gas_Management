@@ -1,0 +1,100 @@
+<html>
+<head>
+    <style>
+        th{
+            width: 80px;
+            text-align: center;
+            font-family: "Agency FB";
+            font-size: 20px;
+            color: darkred;
+        }
+        td{
+            width: 120px;
+            text-align: center;
+            font-family: "Arial Rounded MT Bold";
+            font-size: 15px;
+            color: darkblue;
+
+        }
+
+
+
+    </style>
+</head>
+<body>
+{% if request.session.user_id %}
+    {% include 'agency/manu.html' %}
+
+    <br>
+        <h1 style="text-align: center;font-family: 'Agency FB';color:darkorchid;font-size: 40px"><b>List Of All Customers</b></h1>
+
+{% endif %}
+<br>
+<table align="center" border="2">
+<tr>
+    <th style="text-align: center">
+        Cust ID
+    </th>
+    <th style="text-align: center">
+        Name
+    </th>
+    <th style="text-align: center">
+        Contact No
+    </th>
+    <th style="text-align: center">
+        Pincode
+    </th>
+    <th style="text-align: center">
+        Address
+    </th>
+    <th style="text-align: center">
+        City
+    </th>
+    <th style="text-align: center">
+        Cylinder Type
+    </th>
+    <th style="text-align: center">
+        Password
+    </th>
+    <th style="text-align: center">
+        Update
+    </th>
+
+
+
+
+</tr>
+    {% for x in data %}
+     <tr>
+    <td>
+        {{x.cust_no }}
+    </td>
+    <td>
+        {{ x.name }}
+
+    </td>
+    <td>
+        {{ x.contact }}
+    </td>
+    <td>
+        {{ x.pincode }}
+    </td>
+    <td>
+        {{ x.address }}
+    </td>
+         <td>
+             {{ x.city }}
+         </td>
+     <td>
+             {{ x.Cy_type }}
+         </td>
+     <td>{{ x.password }}</td>
+     <td style="text-align: center"><br>
+         <a class="btn btn-info" href="{% url 'update' %}?id={{ x.cust_no }}">Update</a>
+     </td>
+</tr>
+
+    {% endfor %}
+</table>
+</body>
+</html>

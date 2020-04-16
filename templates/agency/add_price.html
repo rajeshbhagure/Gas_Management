@@ -1,0 +1,41 @@
+{% include 'agency/manu.html' %}
+    {% if request.session.user_id %}
+        <br>
+
+        <h1 style="text-align: center;font-family: 'Agency FB';color:darkorchid;font-size: 40px"><b>Add And Update Price Here</b></h1>
+        <form method="post">
+        {% csrf_token %}
+             <div align="center">
+                 <br>
+       <table align="center" border="2" width="600">
+       <tr>
+           <th>Cylinder Type:</th>
+           <th>{{ form.c_type }}</th>
+               <th>{{ form.c_type.errors }}</th>
+           </tr>
+             <tr>
+           <th>Date:</th>
+           <th>{{ form.date }}</th>
+               <th>{{ form.date.errors }}</th>
+           </tr>
+
+           <tr>
+           <th>Cylinder Price:</th>
+           <th>{{ form.price }}</th>
+               <th>{{ form.price.errors }}</th>
+           </tr>
+           <tr>
+           <tr><th colspan="3" style="text-align: center">
+               <br>
+                {% for x in messages %}
+                   <span class="alert alert-danger">{{ x }}</span>
+                     <br>
+               {% endfor %}
+
+        <button type="submit" class="btn btn-info">Save</button>
+                </th></tr>
+       </table>
+             </div>
+        </form>
+
+{% endif %}

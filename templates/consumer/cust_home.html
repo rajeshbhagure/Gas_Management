@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
+    <!-- Modernizer for Portfolio -->
+    <script src="{% static 'js/modernizer.js' %}"></script>
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+</head>
+<body>
+{% if request.session.cust_id %}
+
+    {% include 'consumer/manu.html' %}
+
+    <div class="slider-area">
+		<div class="slider-wrapper owl-carousel">
+			<div class="slider-item home-one-slider-otem slider-item-four slider-bg-four">
+				<div class="container">
+					<div class="row">
+						<div class="slider-content-area">
+							<div class="slide-text">
+								<h1 class="homepage-three-title">Now Book <span>Your Gas</span> Online</h1>
+								<h2>Customers can also choose to book their refill cylinders by visiting the gas agency in person. They can book a cylinder by providing their customer number and can make the payment at the time or on delivery of the cylinder.<div class="slider-content-btn">
+									<br>
+
+                                    <a class="button btn btn-light btn-radius btn-brd" href="#">Check Prices</a>
+									<a class="button btn btn-light btn-radius btn-brd" href="#">Book</a>
+								</div>
+                                </h2>
+                            </div>
+						</div>
+					</div>
+				</div>
+			</div>
+            <div class="slider-item home-one-slider-otem slider-item-four slider-bg-five">
+				<div class="container">
+					<div class="row">
+						<div class="slider-content-area">
+							<div class="slide-text">
+								<h1 class="homepage-three-title">Now Book <span>Your Gas</span> Online</h1>
+								<h2>Customers can also choose to book their refill cylinders by visiting the gas agency in person. They can book a cylinder by providing their customer number and can make the payment at the time or on delivery of the cylinder.<div class="slider-content-btn">
+									<br>
+                                    <a class="button btn btn-light btn-radius btn-brd" href="#">Check Prices</a>
+									<a class="button btn btn-light btn-radius btn-brd" href="#">Book</a>
+								</div>
+                                </h2>
+                            </div>
+						</div>
+					</div>
+				</div>
+			</div>
+        	</div>
+         </div>
+
+
+
+{% endif %}
+
+
+ <script src="{% static 'js/all.js' %}"></script>
+    <!-- ALL PLUGINS -->
+    <script src="{% static 'js/custom.js' %}"></script>
+    <script src="{% static 'js/portfolio.js' %}"></script>
+    <script src="{% static 'js/hoverdir.js' %}"></script>
+
+</body>
+</html>

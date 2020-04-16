@@ -1,0 +1,38 @@
+{% load static %}
+{% if request.session.user_id %}
+{% include 'agency/manu.html' %}
+
+
+<br>
+    <h1 style="text-align: center;font-family: 'Agency FB';color:darkorchid;font-size: 50px"><b>Customers Page</b></h1><br>
+  <div class="parallax section parallax-off" data-stellar-background-ratio="0.9" style="background-image:url('uploads/parallax_04.jpg');">
+        <div class="container">
+            <div class="row text-center stat-wrap">
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <a href="{%  url 'create_cust' %}">
+                    <img src="{% static 'icons/icons8-create-document-64.png' %}" height="60" width="60">
+                   <h3>Add Customers</h3>  </a>
+                </div><!-- end col -->
+
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                     <a href="{% url 'view_cust' %}">
+                    <img src="{% static 'icons/icons8-view-64.png' %}" height="60" width="60">
+                        <h3>View Customers</h3></a>
+                </div><!-- end col -->
+
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                     <a href="{% url 'view_update' %}">
+                    <img src="{% static 'icons/icons8-update-file-64.png' %}" height="60" width="60">
+                         <h3>Update Customers</h3></a>
+                </div><!-- end col -->
+                <div class="col-md-3 col-sm-6 col-xs-62">
+                    <a href="{% url 'view_delete' %}">
+                    <img src="{% static 'icons/icons8-delete-file-64.png' %}" height="60" width="60">
+                    <h3>Delete Customers</h3> </a>
+                </div><!-- end col -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end section -->
+
+{% endif %}
+
