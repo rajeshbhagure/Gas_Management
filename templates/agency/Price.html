@@ -9,19 +9,19 @@
         <div class="container">
             <div class="row text-center stat-wrap">
                 <div class="col-md-3 col-sm-6 col-xs-12">
-                    <a href="{% url '' %}">
+                    <a href="{% url 'add_price' %}">
                     <img src="{% static 'icons/icons8-create-document-64.png' %}" height="60" width="60">
                    <h3>Add Price</h3>  </a>
                 </div><!-- end col -->
 
                 <div class="col-md-3 col-sm-6 col-xs-12">
-                     <a href="">
+                     <a href="{% url 'view_price' %}">
                     <img src="{% static 'icons/icons8-view-64.png' %}" height="60" width="60">
                         <h3>View Price</h3></a>
                 </div><!-- end col -->
 
                 <div class="col-md-3 col-sm-6 col-xs-12">
-                     <a href="">
+                     <a href="{% url 'update_price' %}">
                     <img src="{% static 'icons/icons8-update-file-64.png' %}" height="60" width="60">
                          <h3>Update Price</h3></a>
                 </div><!-- end col -->

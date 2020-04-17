@@ -32,7 +32,10 @@ urlpatterns = [
     path('update/',views.Update.as_view(),name='update'),
     path('view_delete/',views.ViewDelete.as_view(),name='view_delete'),
     path('delete/',views.delete,name='delete'),
-    path('price/',views.Price.as_view(),name='price')
+    path('price/',views.Price.as_view(),name='price'),
+    path('add_price/',views.Add_Price.as_view(),name='add_price'),
+    path('view_price/',views.ViewPrice.as_view(),name='view_price'),
+    path('update_price/',views.UpdatePrice.as_view(),name='update_price')
 
 
 

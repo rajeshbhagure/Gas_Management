@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import CustomerModel
+from .models import CustomerModel, PriceModel
 
 from .models import Stockdetails
 
@@ -22,16 +22,16 @@ class CustomerForm(forms.ModelForm):
 
 
 
-# class PriceForm(forms.ModelForm):
-#     ch=(
-#         ('Commercial','Commercial'),
-#         ('Dommestic','Dommestic'),
-# )
-#     c_type = forms.ChoiceField(choices=ch)
-#     class Meta:
-#         model=PriceModel
-#         fields='__all__'
-#         # widgets={"date":DateInput}
+class PriceForm(forms.ModelForm):
+    ch=(
+        ('Commercial','Commercial'),
+        ('Dommestic','Dommestic'),
+)
+    c_type = forms.ChoiceField(choices=ch)
+    class Meta:
+        model=PriceModel
+        fields='__all__'
+        widgets={"date":DateInput}
 
 class DateTimeInput (forms.DateTimeInput):
     input_type = 'date'

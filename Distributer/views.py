@@ -11,8 +11,8 @@ from django.shortcuts import render, redirect
 # Create your views here.
 from django.views.generic.base import View
 
-from .models import CustomerModel
-from .forms import CustomerForm, StockForm
+from .models import CustomerModel, PriceModel
+from .forms import CustomerForm, StockForm, PriceForm
 
 
 class LoginClass(View):
@@ -142,3 +142,33 @@ class Price(View):
         return render(request,"agency/Price.html")
     def post(self,request):
         pass
+
+
+class Add_Price(View):
+    def get(self,request):
+        return render(request,"agency/add_price.html",{'form':PriceForm()})
+    def post(self,request):
+        if request.method=='POST':
+            pf=PriceForm(request.POST)
+            if pf.is_valid():
+                pf.save()
+                messages.success(request,"The Price Is Saved...")
+                return redirect('add_price')
+
+
+class ViewPrice(View):
+    def get(self,request):
+        res=PriceModel.objects.all()
+        return render(request,"agency/view_price.html",{"data":res})
+    def post(self,request):
+        pass
+
+
+class UpdatePrice(View):
+    def get(self,request):
+        res = PriceModel.objects.all()
+        return render(request,"agency/update_price.html", {"data": res})
+
+    def post(self,reqeust):
+        pass
+

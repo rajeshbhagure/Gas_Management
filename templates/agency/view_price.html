@@ -16,6 +16,7 @@
             color: darkblue;
             height: 30px;
 
+
         }
 
 
@@ -31,44 +32,31 @@
 
 {% endif %}
 <br>
-<table align="center" border="2">
+<table align="center" border="2" width="600">
 <tr>
     <th style="text-align: center">
-        Cust ID
+        Date
     </th>
     <th style="text-align: center">
-        Name
+        Cylinder Type
     </th>
-    <th style="text-align: center">
-        Contact No
-    </th>
-    <th style="text-align: center">
-        Pincode
-    </th>
-    <th style="text-align: center">
-        Address
+    <th style="text-align: center;">
+        Price
     </th>
 </tr>
     {% for x in data %}
      <tr>
-    <td>
-        {{x.cust_no }}
+    <td >
+        {{x.date }}
     </td>
     <td>
-        {{ x.name }}
+        {{ x.c_type }}
 
     </td>
     <td>
-        {{ x.contact }}
+        {{ x.price }}
     </td>
-    <td>
-        {{ x.pincode }}
-    </td>
-    <td>
-        {{ x.address }}
-    </td>
-</tr>
-
+    </tr>
     {% endfor %}
 </table>
 </body>

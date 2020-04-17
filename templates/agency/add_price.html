@@ -2,7 +2,7 @@
     {% if request.session.user_id %}
         <br>
 
-        <h1 style="text-align: center;font-family: 'Agency FB';color:darkorchid;font-size: 40px"><b>Add And Update Price Here</b></h1>
+        <h1 style="text-align: center;font-family: 'Agency FB';color:darkorchid;font-size: 40px"><b>Add Price Here</b></h1>
         <form method="post">
         {% csrf_token %}
              <div align="center">
@@ -29,7 +29,7 @@
                <br>
                 {% for x in messages %}
                    <span class="alert alert-danger">{{ x }}</span>
-                     <br>
+                     <br><br>
                {% endfor %}
 
         <button type="submit" class="btn btn-info">Save</button>
