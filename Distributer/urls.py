@@ -35,7 +35,11 @@ urlpatterns = [
     path('price/',views.Price.as_view(),name='price'),
     path('add_price/',views.Add_Price.as_view(),name='add_price'),
     path('view_price/',views.ViewPrice.as_view(),name='view_price'),
-    path('update_price/',views.UpdatePrice.as_view(),name='update_price')
+    path('update_price/',views.UpdatePrice.as_view(),name='update_price'),
+    path('updated_price/',views.UpdatedPrice.as_view(),name='updated_price'),
+    path('delete_price/',views.DeletePrice.as_view(),name='delete_price'),
+    path('deleted_price/',views.deleted_price,name='deleted_price')
+
 
 
 

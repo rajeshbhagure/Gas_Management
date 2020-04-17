@@ -28,7 +28,7 @@
     {% include 'agency/manu.html' %}
 
     <br>
-        <h1 style="text-align: center;font-family: 'Agency FB';color:darkorchid;font-size: 40px"><b>List Of All Price</b></h1>
+        <h1 style="text-align: center;font-family: 'Agency FB';color:darkorchid;font-size: 40px"><b>Delete Price Page</b></h1>
 
 {% endif %}
 <br>
@@ -44,7 +44,7 @@
         Price
     </th>
     <th style="text-align: center">
-        Update
+        Delete
     </th>
 </tr>
     {% for x in data %}
@@ -60,9 +60,16 @@
         {{ x.price }}
     </td>
          <td><br>
-             <a href="{% url 'updated_price' %}?id={{ x.id }}" class="btn btn-info">Yes</a>
+             <a href="{% url 'deleted_price' %}?id={{ x.p_id }}" class="btn btn-info">Yes</a>
          </td>
     </tr>
+        {% for x in messages %}
+            <tr>
+                <td colspan="4"><br>
+                <span class="alert alert-danger">{{ x }}</span>
+            </td>
+            </tr>
+            {% endfor %}
     {% endfor %}
 </table>
 </body>

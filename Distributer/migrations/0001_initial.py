@@ -26,15 +26,6 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='PriceModel',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('c_type', models.CharField(max_length=30)),
-                ('price', models.FloatField()),
-                ('date', models.DateField()),
-            ],
-        ),
-        migrations.CreateModel(
             name='Stockdetails',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),

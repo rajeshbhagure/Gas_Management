@@ -172,3 +172,26 @@ class UpdatePrice(View):
     def post(self,reqeust):
         pass
 
+
+class UpdatedPrice(View):
+    def get(self,request):
+        id=request.GET.get('id')
+        res=PriceModel.objects.get(id=id)
+        return render(request,"agency/p_update.html",{"data":res})
+    def post(self,reqeust):
+        pass
+
+
+class DeletePrice(View):
+    def get(self,request):
+        res=PriceModel.objects.all()
+        return render(request,"agency/delete_price.html",{"data":res})
+    def post(self,request):
+        pass
+
+def deleted_price(request):
+    res = request.GET.get('id')
+    PriceModel.objects.filter(p_id=res).delete()
+    messages.success(request, "The Price Is deleted...")
+    return redirect('delete_price')
+
