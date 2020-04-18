@@ -24,7 +24,6 @@ urlpatterns = [
     path('checklogin/',views.checklogin,name='checklogin'),
     path('logout/',views.logout,name='logout'),
     path('add_cust/',views.Add_Cust.as_view(),name='add_cust'),
-    path('add_stock/',views.Add_Stock.as_view(),name='add_stock'),
     path('create_cust/',views.CreateCust.as_view(),name='create_cust'),
     path('view_cust/',views.ViewCust.as_view(),name='view_cust'),
     path('view_update/',views.ViewUpdate.as_view(),name='view_update'),
@@ -37,12 +36,9 @@ urlpatterns = [
     path('update_price/',views.UpdatePrice.as_view(),name='update_price'),
     path('updated_price/',views.UpdatedPrice.as_view(),name='updated_price'),
     path('delete_price/',views.DeletePrice.as_view(),name='delete_price'),
-    path('deleted_price/',views.deleted_price,name='deleted_price')
-
-
-
-
-
-
+    path('deleted_price/',views.deleted_price,name='deleted_price'),
+    path('stock/',views.stock,name='stock'),
+    path('add_stock/', views.Add_Stock.as_view(), name='add_stock'),
+    path('view_stock/', views.View_Stock.as_view(), name='view_stock'),
 
 ]

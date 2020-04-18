@@ -63,3 +63,9 @@ class UpdateCust(View):
         return redirect('update_cust')
 
 
+
+
+
+
+
+

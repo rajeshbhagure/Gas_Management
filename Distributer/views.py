@@ -14,6 +14,8 @@ from django.views.generic.base import View
 from .models import CustomerModel, PriceModel
 from .forms import CustomerForm, StockForm, PriceForm
 
+from .models import Stockdetails
+
 
 class LoginClass(View):
     def get(self,request):
@@ -37,29 +39,15 @@ def checklogin(request):
         return redirect('a_login')
 
 
+def logout(request):
+    del request.session['user_id']
+    return redirect('checklogin')
+
 class Add_Cust(View):
     def get(self,request):
         return render(request,"agency/add_cust.html")
     def post(self,request):
         pass
-
-
-class Add_Stock(View):
-    def get(self,request):
-        return render(request, "agency/add_stock.html", {"form": StockForm()})
-
-    def post(self,request):
-        if request.method=='POST':
-            sf=StockForm(request.POST)
-            if sf.is_valid():
-                sf.save()
-                messages.success(request,"The Stock Is Saved")
-                return redirect('add_stock')
-
-
-def logout(request):
-    del request.session['user_id']
-    return redirect('checklogin')
 
 
 class CreateCust(View):
@@ -177,3 +165,28 @@ def deleted_price(request):
     messages.success(request, "The Price Is deleted...")
     return redirect('delete_price')
 
+
+def stock(request):
+    return render(request,"agency/stock.html")
+
+
+
+class Add_Stock(View):
+    def get(self,request):
+        return render(request, "agency/add_stock.html", {"form": StockForm()})
+
+    def post(self,request):
+        if request.method=='POST':
+            sf=StockForm(request.POST)
+            if sf.is_valid():
+                sf.save()
+                messages.success(request,"The Stock Is Saved")
+                return redirect('add_stock')
+
+
+class View_Stock(View):
+    def get(self,request):
+        res=Stockdetails.objects.all()
+        return render(request,"agency/View_stock.html",{'data':res})
+    def post(self,request):
+        pass
