@@ -45,7 +45,6 @@ class Add_Cust(View):
 
 
 class Add_Stock(View):
-
     def get(self,request):
         return render(request, "agency/add_stock.html", {"form": StockForm()})
 
@@ -61,23 +60,6 @@ class Add_Stock(View):
 def logout(request):
     del request.session['user_id']
     return redirect('checklogin')
-
-
-class UpdateCust(View):
-    def get(self,request):
-        uname=request.GET.get('id')
-        res=CustomerModel.objects.filter(name=uname)
-        print(res)
-        return render(request,"consumer/update_cust.html",{"form":res})
-    def post(self,request):
-        no=request.POST['t1']
-        password=request.POST['t2']
-        name=request.POST['t3']
-        address=request.POST['t4']
-        city=request.POST['t5']
-        contact=request.POST['t6']
-        pincode=request.POST['t7']
-        CustomerModel.objects.filter(cust_no=no).update(password=password,name=name,address=address,city=city,contact=contact,pincode=pincode)
 
 
 class CreateCust(View):
@@ -176,7 +158,7 @@ class UpdatePrice(View):
 class UpdatedPrice(View):
     def get(self,request):
         id=request.GET.get('id')
-        res=PriceModel.objects.get(id=id)
+        res=PriceModel.objects.get(p_id=id)
         return render(request,"agency/p_update.html",{"data":res})
     def post(self,reqeust):
         pass

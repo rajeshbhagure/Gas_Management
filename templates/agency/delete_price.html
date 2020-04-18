@@ -30,7 +30,6 @@
     <br>
         <h1 style="text-align: center;font-family: 'Agency FB';color:darkorchid;font-size: 40px"><b>Delete Price Page</b></h1>
 
-{% endif %}
 <br>
 <table align="center" border="2" width="600">
 <tr>
@@ -64,13 +63,11 @@
          </td>
     </tr>
         {% for x in messages %}
-            <tr>
-                <td colspan="4"><br>
-                <span class="alert alert-danger">{{ x }}</span>
-            </td>
-            </tr>
+          <span style="text-align: center"> {{ x }}</span>
             {% endfor %}
     {% endfor %}
 </table>
+{% endif %}
+
 </body>
 </html>

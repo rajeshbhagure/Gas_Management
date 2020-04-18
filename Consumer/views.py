@@ -37,3 +37,29 @@ def cust_logout(request):
     del request.session['cust_id']
     return redirect('cust_login')
 
+def account(request):
+    uname = request.GET.get('id')
+    res = CustomerModel.objects.get(name=uname)
+    print(res)
+    return render(request, "consumer/account.html", {"data": res})
+
+
+class UpdateCust(View):
+    def get(self,request):
+        uname=request.GET.get('id')
+        res=CustomerModel.objects.filter(name=uname)
+        print(res)
+        return render(request,"consumer/update_cust.html",{"form":res})
+    def post(self,request):
+        no=request.POST['t1']
+        password=request.POST['t2']
+        name=request.POST['t3']
+        address=request.POST['t4']
+        city=request.POST['t5']
+        contact=request.POST['t6']
+        pincode=request.POST['t7']
+        CustomerModel.objects.filter(cust_no=no).update(password=password,name=name,address=address,city=city,contact=contact,pincode=pincode)
+        messages.success(request,"The Info Is Updated...")
+        return redirect('update_cust')
+
+

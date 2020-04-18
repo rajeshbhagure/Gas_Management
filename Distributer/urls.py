@@ -25,7 +25,6 @@ urlpatterns = [
     path('logout/',views.logout,name='logout'),
     path('add_cust/',views.Add_Cust.as_view(),name='add_cust'),
     path('add_stock/',views.Add_Stock.as_view(),name='add_stock'),
-    path('update_cust/',views.UpdateCust.as_view(),name='update_cust'),
     path('create_cust/',views.CreateCust.as_view(),name='create_cust'),
     path('view_cust/',views.ViewCust.as_view(),name='view_cust'),
     path('view_update/',views.ViewUpdate.as_view(),name='view_update'),

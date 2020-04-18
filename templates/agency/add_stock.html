@@ -1,6 +1,15 @@
-
+<html>
 <head>
-
+    <style>
+        th{
+            color: #0c5460;
+            font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+        }
+        td{
+            color: darkblue;
+            font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+        }
+    </style>
 </head>
 <body>
 {% include 'agency/manu.html' %}
@@ -16,37 +25,37 @@
        <table align="center" border="2" width="600">
        <tr>
            <th>DateTime:</th>
-           <th>{{ form.s_date }}</th>
+           <td>{{ form.s_date }}</td>
                <th>{{ form.s_date.errors }}</th>
            </tr>
            <tr>
            <th>Stock Received Commercial:</th>
-           <th>{{ form.stock_comm }}</th>
+           <td>{{ form.stock_comm }}</td>
                <th>{{ form.stock_comm.errors }}</th>
            </tr>
             <tr>
            <th>Stock Received Domestic:</th>
-           <th>{{ form.stock_dom }}</th>
+           <td>{{ form.stock_dom }}</td>
                <th>{{ form.stock_dom.errors }}</th>
            </tr>
        <tr>
            <th>Stock Defective Commercial:</th>
-           <th>{{ form.defective_comm }}</th>
+           <td>{{ form.defective_comm }}</td>
                <th>{{ form.defective_comm.errors }}</th>
            </tr>
             <tr>
            <th>Stock Defective Domestic:</th>
-           <th>{{ form.defective_dom }}</th>
+           <td>{{ form.defective_dom }}</td>
                <th>{{ form.defective_dom.errors }}</th>
            </tr>
             <tr>
            <th>Stock Current Commercial:</th>
-           <th>{{ form.current_stock_comm }}</th>
+           <td>{{ form.current_stock_comm }}</td>
                <th>{{ form.current_stock_comm.errors }}</th>
            </tr>
             <tr>
            <th>Stock Current Domestic:</th>
-           <th>{{ form.current_stock_dom }}</th>
+           <td>{{ form.current_stock_dom }}</td>
                <th>{{ form.current_stock_dom.errors }}</th>
            </tr>
            <tr><th colspan="3" style="text-align: center">
@@ -63,4 +72,4 @@
         </form>
 
 {% endif %}
-</body>
+</body></html>

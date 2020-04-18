@@ -1,3 +1,20 @@
+<html>
+<head>
+    <style>
+        th{
+            color: #0c5460;
+            font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+        }
+        td{
+            color: darkblue;
+            font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+
+
 {% include 'agency/manu.html' %}
     {% if request.session.user_id %}
         <br>
@@ -9,25 +26,25 @@
                  <br>
        <table align="center" border="2" width="600">
        <tr>
-           <th>Price Id</th>
-           <th>{{ form.p_id }}</th>
+           <th>Price Id:</th>
+           <td>{{ form.p_id }}</td>
                <th>{{ form.p_id.errors }}</th>
            </tr>
 
        <tr>
            <th>Cylinder Type:</th>
-           <th>{{ form.c_type }}</th>
+           <td>{{ form.c_type }}</td>
                <th>{{ form.c_type.errors }}</th>
            </tr>
              <tr>
            <th>Date:</th>
-           <th>{{ form.date }}</th>
+           <td>{{ form.date }}</td>
                <th>{{ form.date.errors }}</th>
            </tr>
 
            <tr>
            <th>Cylinder Price:</th>
-           <th>{{ form.price }}</th>
+           <td>{{ form.price }}</td>
                <th>{{ form.price.errors }}</th>
            </tr>
            <tr>
@@ -45,3 +62,4 @@
         </form>
 
 {% endif %}
+</body></html>

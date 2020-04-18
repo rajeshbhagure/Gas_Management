@@ -1,3 +1,19 @@
+<html>
+<head>
+    <style>
+        th{
+            color: #0c5460;
+            font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+        }
+        td{
+            color: darkblue;
+            font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+
 {% if request.session.user_id %}
     {% include 'agency/manu.html' %}
 
@@ -9,47 +25,47 @@
                  <br>
        <table align="center" border="2" width="600">
            <th>Customer Number:</th>
-           <th>{{ form.cust_no }}</th>
+           <td>{{ form.cust_no }}</td>
                <th>{{ form.cust_no.errors }}</th>
            </tr>
            <tr>
            <th>Customer Password:</th>
-           <th>{{ form.password }}</th>
+           <td>{{ form.password }}</td>
                <th>{{ form.password.errors }}</th>
            </tr>
            <tr>
            <th>Cylinder Type :</th>
-           <th>{{ form.Cy_type }}</th>
+           <td>{{ form.Cy_type }}</td>
                <th>{{ form.Cy_type.errors }}</th>
            </tr>
            <tr>
            <th>Connection Date:</th>
-           <th>{{ form.date_conn }}</th>
+           <td>{{ form.date_conn }}</td>
                <th>{{ form.date_conn.errors }}</th>
            </tr>
            <tr>
            <th>Customer Name:</th>
-           <th>{{ form.name }}</th>
+           <td>{{ form.name }}</td>
                <th>{{ form.name.errors }}</th>
            </tr>
            <tr>
            <th>Customer Address:</th>
-           <th>{{ form.address }}</th>
+           <td>{{ form.address }}</td>
                <th>{{ form.address.errors }}</th>
            </tr>
            <tr>
            <th>Customer City:</th>
-           <th>{{ form.city }}</th>
+           <td>{{ form.city }}</td>
                <th>{{ form.city.errors }}</th>
            </tr>
            <tr>
            <th>Customer Contact No:</th>
-           <th>{{ form.contact }}</th>
+           <td>{{ form.contact }}</td>
                <th>{{ form.contact.errors }}</th>
            </tr>
            <tr>
            <th>Pincode:</th>
-           <th>{{ form.pincode }}</th>
+           <td>{{ form.pincode }}</td>
                <th>{{ form.pincode.errors }}</th>
            </tr>
            <tr><th colspan="3" style="text-align: center">
@@ -66,3 +82,5 @@
         </form>
 
 {% endif %}
+</body>
+</html>

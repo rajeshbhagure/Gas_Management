@@ -1,0 +1,80 @@
+<html>
+<head>
+    <title>
+        Update customer
+    </title>
+     <style>
+        th{
+            color: #0c5460;
+            font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+        }
+        td{
+            color: darkblue;
+            font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+{% if request.session.cust_id %}
+    {% include 'consumer/manu.html' %}
+ <br>
+
+        <h1 style="text-align: center;font-family: 'Agency FB';color:darkorchid;font-size: 40px"><b>Manage Your Details Here</b></h1>
+             <div align="center">
+                 <br>
+                 <table align="center" border="2" width="600">
+           <th>Customer Number:</th>
+               <td>{{ data.cust_no }}</td>
+           </tr>
+           <tr>
+           <th>Customer Password:</th>
+               <td>{{ data.password }}</td>
+           </tr>
+           <tr>
+           <th>Customer Name:</th>
+               <td>{{ data.name }}</td>
+           </tr>
+           <tr>
+           <th>Customer Address:</th>
+               <td>{{ data.address }}</td>
+           </tr>
+           <tr>
+           <th>Customer City:</th>
+               <td>{{ data.city }}</td>
+           </tr>
+           <tr>
+           <th>Customer Contact No:</th>
+               <td>{{ data.contact }}</td>
+           </tr>
+           <tr>
+           <th>Pincode:</th>
+               <td>{{ data.pincode }}</td>
+           </tr>
+                     <tr>
+           <th>Cylinder Type:</th>
+               <td>{{ data.Cy_type }}</td>
+           </tr>
+           <tr>
+           <th>Date of connection:</th>
+               <td>{{ data.date_conn }}</td>
+           </tr>
+
+           <tr><th colspan="3" style="text-align: center">
+               <br>
+                        <a href="{% url 'update_cust' %}?id={{ data.name }}" class="btn btn-info">Update</a>
+                </th></tr>
+               {% for x in messages %}
+                   <tr>
+                       <th>
+                           <span class="alert alert-danger">{{ x }}</span>
+                       </th>
+                   </tr>
+                     {% endfor %}
+       </table>
+             </div>
+        </form>
+
+
+{% endif %}
+</body>
+</html>

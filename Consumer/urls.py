@@ -23,5 +23,7 @@ urlpatterns = [
     path('c_login/',views.Cust_Login.as_view(),name='c_login'),
     path('cust_login',views.cust_login,name='cust_login'),
     path('cust_logout/',views.cust_logout, name='cust_logout'),
+    path('account/',views.account, name='account'),
+    path('update_cust/', views.UpdateCust.as_view(), name='update_cust'),
 
 ]

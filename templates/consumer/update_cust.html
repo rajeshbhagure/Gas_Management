@@ -3,6 +3,16 @@
     <title>
         Update customer
     </title>
+    <style>
+        th{
+            color: #0c5460;
+            font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+        }
+        td{
+            color: darkblue;
+            font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+        }
+    </style>
 </head>
 <body>
 {% if request.session.cust_id %}
@@ -17,47 +27,43 @@
              {% for x in form %}
        <table align="center" border="2" width="600">
            <th>Customer Number:</th>
-           <th><input type="number" value="{{ x.cust_no }}" readonly name="t1"></th>
+           <th style="color: red"><input type="number" value="{{ x.cust_no }}" readonly name="t1"></th>
                <th>{{ form.cust_no.errors }}</th>
            </tr>
            <tr>
            <th>Customer Password:</th>
-           <th><input type="text" value="{{ x.password }}" name="t2"></th>
+           <td><input type="text" value="{{ x.password }}" name="t2"></td>
                <th>{{ form.password.errors }}</th>
            </tr>
            <tr>
            <th>Customer Name:</th>
-           <th><input type="text" value="{{ x.name }}" name="t3"></th>
+           <td><input type="text" value="{{ x.name }}" name="t3"></td>
                <th>{{ form.name.errors }}</th>
            </tr>
            <tr>
            <th>Customer Address:</th>
-           <th><input type="text" value="{{ x.address }}" name="t4"></th>
+           <td><input type="text" value="{{ x.address }}" name="t4"></td>
                <th>{{ form.address.errors }}</th>
            </tr>
            <tr>
            <th>Customer City:</th>
-           <th><input type="text" value="{{ x.city }}" name="t5"></th>
+           <td><input type="text" value="{{ x.city }}" name="t5"></td>
                <th>{{ form.city.errors }}</th>
            </tr>
            <tr>
            <th>Customer Contact No:</th>
-           <th><input type="text" value="{{ x.contact }}" name="t6"></th>
+           <td><input type="text" value="{{ x.contact }}" name="t6"></td>
                <th>{{ form.contact.errors }}</th>
            </tr>
            <tr>
            <th>Pincode:</th>
-           <th>
+           <td>
                <input type="text" value="{{ x.pincode }}" name="t7">
-           </th>
+           </td>
                <th>{{ form.pincode.errors }}</th>
            </tr>
            <tr><th colspan="3" style="text-align: center">
                <br>
-                {% for x in messages %}
-                   <span class="alert alert-danger">{{ x }}</span>
-                     <br>
-               {% endfor %}
 
         <button type="submit" class="btn btn-info">Save</button>
                 </th></tr>
@@ -65,6 +71,16 @@
              {% endfor %}
              </div>
         </form>
+       <div align="center">
+    {% for x in messages %}
+
+                   <span class="alert alert-danger">{{ x }}</span>
+                     <br><br>
+        <a style="font-family: Arial;color: darkred" href="{% url 'account' %}?id={{ request.session.cust_id }}"><h3>Check Here</h3></a>
+               {% endfor %}
+
+
+    </div>
 
 
 {% endif %}

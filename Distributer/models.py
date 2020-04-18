@@ -20,7 +20,7 @@ class PriceModel(models.Model):
     p_id=models.IntegerField(primary_key=True)
     c_type=models.CharField(max_length=30)
     price=models.FloatField()
-    date=models.DateField(unique=True)
+    date=models.DateField()
 
 class Stockdetails(models.Model):
     s_date=models.DateTimeField()
