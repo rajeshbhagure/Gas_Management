@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title>
+        Cylinder Booking
+    </title>
+     <style>
+        th{
+            color: #0c5460;
+            font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+        }
+        td{
+            color: darkblue;
+            font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+        }
+         input{
+             width: 450px;
+         }
+    </style>
+</head>
+<body>
+{% if request.session.cust_id %}
+    {% include 'consumer/manu.html' %}
+ <br>
+
+             <div align="center">
+                 <br><br><br><br>
+                 {% for x in messages %}
+                     <span class="alert alert-danger">{{ x }}</span>
+                 {% endfor %}
+             <br><br>
+                 <h2 style="font-family: 'Arial Narrow';margin-left: 200px"><a href="{% url 'history' %}?id={{ request.session.cust_id }}">Check Here...!</a></h2>
+             </div>
+        </form>
+{% endif %}
+</body>
+</html>

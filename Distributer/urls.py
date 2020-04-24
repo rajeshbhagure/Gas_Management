@@ -40,5 +40,8 @@ urlpatterns = [
     path('stock/',views.stock,name='stock'),
     path('add_stock/', views.Add_Stock.as_view(), name='add_stock'),
     path('view_stock/', views.View_Stock.as_view(), name='view_stock'),
+    path('update_view_stock/',views.UpdateViewStock.as_view(),name='update_view_stock'),
+    path('delete_view_stock/',views.DeleteViewStock.as_view(),name='delete_view_stock'),
+    path('delete_stock/',views.delete_stock,name='delete_stock')
 
 ]

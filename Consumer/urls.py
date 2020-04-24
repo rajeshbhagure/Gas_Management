@@ -25,5 +25,7 @@ urlpatterns = [
     path('cust_logout/',views.cust_logout, name='cust_logout'),
     path('account/',views.account, name='account'),
     path('update_cust/', views.UpdateCust.as_view(), name='update_cust'),
+    path('booking/',views.Booking.as_view(),name='booking'),
+    path('history/',views.history,name='history')
 
 ]

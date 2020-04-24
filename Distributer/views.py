@@ -85,7 +85,18 @@ class Update(View):
         res=CustomerModel.objects.get(cust_no=id)
         return render(request, "agency/update.html", {"data": res})
     def post(self,request):
-        pass
+        if request.method=='POST':
+            cust_no=request.POST['cust_no']
+            name=request.POST['name']
+            contact=request.POST['contact']
+            pincode=request.POST['pincode']
+            address=request.POST['address']
+            city=request.POST['city']
+            Cy_type=request.POST['Cy_type']
+            password=request.POST['password']
+            CustomerModel.objects.filter(cust_no=cust_no).update(name=name,contact=contact,pincode=pincode,address=address,city=city,Cy_type=Cy_type,password=password)
+            messages.success(request, "The Customer data is updated...")
+            return redirect('view_update')
 
 
 class ViewDelete(View):
@@ -148,8 +159,17 @@ class UpdatedPrice(View):
         id=request.GET.get('id')
         res=PriceModel.objects.get(p_id=id)
         return render(request,"agency/p_update.html",{"data":res})
-    def post(self,reqeust):
-        pass
+    def post(self,request):
+        pid=request.POST['p_id']
+        print(pid)
+        date=request.POST['date']
+        ctype=request.POST['c_type']
+        price=request.POST['price']
+        PriceModel.objects.filter(p_id=pid).update(price=price)
+        messages.success(request,"The price is updated...")
+        return redirect('update_price')
+
+
 
 
 class DeletePrice(View):
@@ -190,3 +210,25 @@ class View_Stock(View):
         return render(request,"agency/View_stock.html",{'data':res})
     def post(self,request):
         pass
+
+
+class UpdateViewStock(View):
+    def get(self,request):
+        res=Stockdetails.objects.all()
+        return render(request,"agency/stock_update_view.html",{'data':res})
+    def post(self,request):
+        pass
+
+
+class DeleteViewStock(View):
+    def get(self,request):
+        res = Stockdetails.objects.all()
+        return render(request, "agency/stock_delete_view.html", {'data': res})
+    def post(self,request):
+        pass
+
+
+def delete_stock(request):
+    s_date=request.GET.get('id')
+    Stockdetails.objects.filter(s_date=s_date).delete()
+    return redirect('delete_view_stock')

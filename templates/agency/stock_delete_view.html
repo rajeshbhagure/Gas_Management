@@ -14,6 +14,7 @@
             font-family: "Arial Rounded MT Bold";
             font-size: 15px;
             color: darkblue;
+            height: 30px;
 
         }
 
@@ -26,69 +27,56 @@
     {% include 'agency/manu.html' %}
 
     <br>
-        <h1 style="text-align: center;font-family: 'Agency FB';color:darkorchid;font-size: 40px"><b>List Of All Customers</b></h1>
+        <h1 style="text-align: center;font-family: 'Agency FB';color:darkorchid;font-size: 40px"><b>List Of All Stock details</b></h1>
 
-{% endif %}
 <br>
 <table align="center" border="2">
 <tr>
     <th style="text-align: center">
-        Cust ID
+        Date
     </th>
     <th style="text-align: center">
-        Name
+        Received Commercial
     </th>
     <th style="text-align: center">
-        Contact No
+        Received Dommestic
+    </th>
     </th>
     <th style="text-align: center">
-        Pincode
+        Current Commercial
     </th>
     <th style="text-align: center">
-        Address
+        Current Dommestic
     </th>
     <th style="text-align: center">
         Delete
     </th>
-
-
-
-
 </tr>
     {% for x in data %}
      <tr>
     <td>
-        {{x.cust_no }}
+        {{x.s_date }}
     </td>
     <td>
-        {{ x.name }}
-
+        {{ x.stock_comm }}
     </td>
     <td>
-        {{ x.contact }}
+        {{ x.stock_comm }}
+    </td>
+     <td>
+        {{ x.current_stock_comm }}
     </td>
     <td>
-        {{ x.pincode }}
+        {{ x.current_stock_dom }}
     </td>
-    <td>
-        {{ x.address }}
-    </td>
-
-     <td style="text-align: center"><br>
-         <a class="btn btn-info" href="{% url 'delete' %}?id={{ x.cust_no }}">Delete</a>
-     </td>
+         <td style="text-align: center"><br>
+             <a href="{% url 'delete_stock' %}?id={{ x.s_date }}" class="btn btn-danger">Yes</a>
+         </td>
 </tr>
+
     {% endfor %}
-
 </table>
-{% for x in messages %}
-        <div style="text-align: center">
-            <br><br>
-            <span class="btn btn-danger">{{ x }}</span>
-
-</div>
-
-{% endfor %}
+{% endif %}
 
 </body>
 </html>

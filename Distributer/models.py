@@ -23,7 +23,7 @@ class PriceModel(models.Model):
     date=models.DateField()
 
 class Stockdetails(models.Model):
-    s_date=models.DateTimeField()
+    s_date=models.DateTimeField(primary_key=True)
     stock_comm=models.IntegerField()
     stock_dom = models.IntegerField()
     defective_comm=models.IntegerField()

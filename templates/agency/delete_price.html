@@ -62,11 +62,18 @@
              <a href="{% url 'deleted_price' %}?id={{ x.p_id }}" class="btn btn-info">Yes</a>
          </td>
     </tr>
-        {% for x in messages %}
-          <span style="text-align: center"> {{ x }}</span>
-            {% endfor %}
+
     {% endfor %}
 </table>
+    {% for x in messages %}
+        <div style="text-align: center">
+            <br><br>
+            <span class="btn btn-danger">{{ x }}</span>
+
+</div>
+
+{% endfor %}
+
 {% endif %}
 
 </body>

@@ -14,6 +14,7 @@
             font-family: "Arial Rounded MT Bold";
             font-size: 15px;
             color: darkblue;
+            height: 30px;
 
         }
 
@@ -22,13 +23,11 @@
     </style>
 </head>
 <body>
-{% if request.session.user_id %}
-    {% include 'agency/manu.html' %}
+{% if request.session.cust_id %}
+    {% include 'consumer/manu.html' %}
 
     <br>
-        <h1 style="text-align: center;font-family: 'Agency FB';color:darkorchid;font-size: 40px"><b>List Of All Customers</b></h1>
-
-{% endif %}
+        <h1 style="text-align: center;font-family: 'Agency FB';color:darkorchid;font-size: 40px"><b>All Transactions</b></h1>
 <br>
 <table align="center" border="2">
 <tr>
@@ -39,56 +38,38 @@
         Name
     </th>
     <th style="text-align: center">
-        Contact No
+        Cylinder Type
     </th>
     <th style="text-align: center">
-        Pincode
+        Booking DateTime
     </th>
     <th style="text-align: center">
-        Address
+        Status
     </th>
-    <th style="text-align: center">
-        Delete
-    </th>
-
-
-
-
 </tr>
     {% for x in data %}
      <tr>
     <td>
-        {{x.cust_no }}
+        {{x.customer_id }}
     </td>
     <td>
-        {{ x.name }}
+        {{ x.cust_name }}
 
     </td>
     <td>
-        {{ x.contact }}
+        {{ x.cy_type }}
     </td>
     <td>
-        {{ x.pincode }}
+        {{ x.datetime }}
     </td>
     <td>
-        {{ x.address }}
+        {{ x.status }}
     </td>
-
-     <td style="text-align: center"><br>
-         <a class="btn btn-info" href="{% url 'delete' %}?id={{ x.cust_no }}">Delete</a>
-     </td>
 </tr>
+
     {% endfor %}
-
 </table>
-{% for x in messages %}
-        <div style="text-align: center">
-            <br><br>
-            <span class="btn btn-danger">{{ x }}</span>
-
-</div>
-
-{% endfor %}
+{% endif %}
 
 </body>
 </html>

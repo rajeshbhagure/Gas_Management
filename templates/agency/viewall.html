@@ -15,11 +15,7 @@
             font-size: 15px;
             color: darkblue;
             height: 30px;
-
         }
-
-
-
     </style>
 </head>
 <body>
@@ -28,7 +24,6 @@
 
     <br>
         <h1 style="text-align: center;font-family: 'Agency FB';color:darkorchid;font-size: 40px"><b>List Of All Customers</b></h1>
-
 <br>
 <table align="center" border="2">
 <tr>
@@ -40,6 +35,9 @@
     </th>
     <th style="text-align: center">
         Contact No
+    </th>
+    <th style="text-align: center">
+        Date of Connection:
     </th>
     <th style="text-align: center">
         Pincode
@@ -55,22 +53,22 @@
     </td>
     <td>
         {{ x.name }}
-
     </td>
     <td>
         {{ x.contact }}
     </td>
     <td>
+        {{ x.date_conn }}
+    </td>
+         <td>
         {{ x.pincode }}
     </td>
     <td>
         {{ x.address }}
     </td>
 </tr>
-
     {% endfor %}
 </table>
 {% endif %}
-
 </body>
 </html>

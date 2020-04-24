@@ -49,17 +49,20 @@
            </tr>
            <tr>
            <tr><th colspan="3" style="text-align: center">
-               <br>
-                {% for x in messages %}
-                   <span class="alert alert-danger">{{ x }}</span>
-                     <br><br>
-               {% endfor %}
-
-        <button type="submit" class="btn btn-info">Save</button>
+                  <button type="submit" class="btn btn-info">Save</button>
                 </th></tr>
        </table>
              </div>
         </form>
+        {% for x in messages %}
+        <div style="text-align: center">
+            <br><br>
+            <span class="btn btn-danger">{{ x }}</span>
+
+</div>
+
+{% endfor %}
+
 
 {% endif %}
 </body></html>

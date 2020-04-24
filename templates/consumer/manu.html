@@ -67,8 +67,8 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a  href="{% url 'cust_login' %}">Home</a></li>
                         <li><a  href="{% url 'account' %}?id={{ request.session.cust_id }}">Account</a></li>
-                        <li><a href="">Booking</a></li>
-                        <li><a href="">History</a></li>
+                        <li><a href="{% url 'booking' %}?id={{ request.session.cust_id }}">Booking</a></li>
+                        <li><a href="{% url 'history' %}?id={{ request.session.cust_id }}">History</a></li>
                         <li><a href="">Help&Faq</a></li>
 						<li style="margin-left: 100px"><img src="{% static 'images/recrute.png' %}" height="40" width="40">
              {{ request.session.cust_id }}

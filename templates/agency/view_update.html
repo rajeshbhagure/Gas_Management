@@ -14,7 +14,6 @@
             font-family: "Arial Rounded MT Bold";
             font-size: 15px;
             color: darkblue;
-
         }
 
 
@@ -30,6 +29,8 @@
 
 {% endif %}
 <br>
+
+
 <table align="center" border="2">
 <tr>
     <th style="text-align: center">
@@ -90,10 +91,20 @@
          </td>
      <td>{{ x.password }}</td>
      <td style="text-align: center"><br>
-         <a class="btn btn-info" href="{% url 'update' %}?id={{ x.cust_no }}">Update</a>
+         <a class="btn btn-primary" href="{% url 'update' %}?id={{ x.cust_no }}">Update</a>
      </td>
 </tr>
     {% endfor %}
 </table>
+{% for x in messages %}
+        <div style="text-align: center">
+            <br><br>
+            <span class="btn btn-danger">{{ x }}</span>
+
+</div>
+
+{% endfor %}
+
+
 </body>
 </html>
