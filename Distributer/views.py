@@ -11,6 +11,7 @@ from django.shortcuts import render, redirect
 # Create your views here.
 from django.views.generic.base import View
 
+from Consumer.models import TransactionModel
 from .models import CustomerModel, PriceModel
 from .forms import CustomerForm, StockForm, PriceForm
 
@@ -139,7 +140,8 @@ class Add_Price(View):
 
 class ViewPrice(View):
     def get(self,request):
-        res=PriceModel.objects.all()
+        res = PriceModel.objects.all()
+        print(res)
         return render(request,"agency/view_price.html",{"data":res})
     def post(self,request):
         pass
@@ -232,3 +234,43 @@ def delete_stock(request):
     s_date=request.GET.get('id')
     Stockdetails.objects.filter(s_date=s_date).delete()
     return redirect('delete_view_stock')
+
+
+def agency_booking(request):
+    return render(request,"agency/Agency_Booking.html")
+
+
+def pending(request):
+    res=TransactionModel.objects.all().filter(status='Booking')
+    return render(request,"agency/pending.html",{"data":res})
+
+
+def processing(request):
+    res=request.GET.get('id')
+    print(res)
+    TransactionModel.objects.filter(Tid=res).update(status='Pending')
+    return redirect('pending')
+
+
+
+def delivered(request):
+    res = request.GET.get('id')
+    TransactionModel.objects.filter(Tid=res).update(status='Delivered')
+    return redirect('pending')
+
+
+def book_pending(request):
+    res = TransactionModel.objects.all().filter(status='Pending')
+    return render(request, "agency/book_pending.html", {"data": res})
+
+
+def booking_delivered(request):
+    res = request.GET.get('id')
+    TransactionModel.objects.filter(Tid=res).update(status='Delivered')
+    return redirect('book_pending')
+
+
+def book_delivered(request):
+    res = TransactionModel.objects.all().filter(status='Delivered')
+    return render(request, "agency/book_delivered.html", {"data": res})
+

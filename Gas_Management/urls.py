@@ -24,7 +24,7 @@ from Distributer import urls as dist
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('index/',TemplateView.as_view(template_name='index2.html'),name='index'),
+    path('',TemplateView.as_view(template_name='index2.html'),name='index'),
     path('',include(dist)),
     path('', include(cust)),
 

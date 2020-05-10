@@ -40,7 +40,7 @@
 									<br>
 
                                     <a class="button btn btn-light btn-radius btn-brd" href="{% url 'view_price' %}">Check Prices</a>
-									<a class="button btn btn-light btn-radius btn-brd" href="#">Book</a>
+									<a class="button btn btn-light btn-radius btn-brd" href="{% url  'booking' %}?id={{ request.session.cust_id }}">Book</a>
 								</div>
                                 </h2>
                             </div>
@@ -57,7 +57,7 @@
 								<h2>Customers can also choose to book their refill cylinders by visiting the gas agency in person. They can book a cylinder by providing their customer number and can make the payment at the time or on delivery of the cylinder.<div class="slider-content-btn">
 									<br>
                                     <a class="button btn btn-light btn-radius btn-brd" href="{% url 'view_price' %}">Check Prices</a>
-									<a class="button btn btn-light btn-radius btn-brd" href="#">Book</a>
+									<a class="button btn btn-light btn-radius btn-brd" href="{% url 'booking' %}?id={{ request.session.cust_id }}">Book</a>
 								</div>
                                 </h2>
                             </div>
@@ -68,7 +68,7 @@
         	</div>
          </div>
 
-
+{% include 'footer.html' %}
 {% endif %}
 
 

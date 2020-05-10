@@ -15,6 +15,7 @@ from Consumer.forms import TransactionForm
 from Consumer.models import TransactionModel
 from Distributer.models import CustomerModel
 
+
 class Cust_Login(View):
     def get(self,request):
         return render(request,"consumer/login.html")
@@ -58,13 +59,13 @@ class UpdateCust(View):
         no=request.POST['t1']
         password=request.POST['t2']
         name=request.POST['t3']
-        address=request.POSTupdate_cust['t4']
+        address=request.POST['t4']
         city=request.POST['t5']
         contact=request.POST['t6']
         pincode=request.POST['t7']
         CustomerModel.objects.filter(cust_no=no).update(password=password,name=name,address=address,city=city,contact=contact,pincode=pincode)
         messages.success(request,"The Info Is Updated...")
-        return redirect('')
+        return redirect('update_cust')
 
 
 class Booking(View):
@@ -81,10 +82,24 @@ class Booking(View):
             cust_name=request.POST.get('t3')
             booking_date=datetime.now()
             booking_status=request.POST.get('t5')
+            # contact=str(request.POST['t6'])
+            # print(type(contact))
+            # import requests
+            # url = "https://www.fast2sms.com/dev/bulk"
+            # payload = "sender_id=RBGAS&message= Hii This is Rajesh From Rb Gas Your Gas Cylinder Is Booked... &language=english&route=p&numbers=" + contact
+            # headers = {
+            #     'authorization': "fZYBQRum4eoMVFSp8jCGKcvNJX3hzLAak1ixO657d9IqHlTbDsNlbRn2drgWqC0mf469B35IuDyaOosZ",
+            #     'Content-Type': "application/x-www-form-urlencoded",
+            #     'Cache-Control': "no-cache",
+            # }
+            # response = requests.request("POST", url, data=payload, headers=headers)
+            # response.json()
+            # res=TransactionModel.objects.filter(cust_name=cust_name).latest(booking_date)
+            # print(res)
             order=TransactionModel(customer_id=cust_no,cy_type=cy_type,cust_name=cust_name,datetime=booking_date,status=booking_status)
             order.save()
-            messages.success(request,"Cylinder Is Boooked...")
-            return render(request,"consumer/booked.html")
+            messages.success(request, "Cylinder Is Boooked...")
+            return render(request, "consumer/booked.html")
 
 
 def history(request):

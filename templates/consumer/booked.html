@@ -31,6 +31,7 @@
                  <h2 style="font-family: 'Arial Narrow';margin-left: 200px"><a href="{% url 'history' %}?id={{ request.session.cust_id }}">Check Here...!</a></h2>
              </div>
         </form>
+    {% include 'footer.html' %}
 {% endif %}
 </body>
 </html>

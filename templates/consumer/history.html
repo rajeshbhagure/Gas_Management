@@ -27,10 +27,13 @@
     {% include 'consumer/manu.html' %}
 
     <br>
-        <h1 style="text-align: center;font-family: 'Agency FB';color:darkorchid;font-size: 40px"><b>All Transactions</b></h1>
+        <h1 style="text-align: center;font-family: 'Agency FB';color:darkorchid;font-size: 40px"><b>Your All Transactions</b></h1>
 <br>
 <table align="center" border="2">
 <tr>
+    <th style="text-align: center">
+        Transaction ID
+    </th>
     <th style="text-align: center">
         Cust ID
     </th>
@@ -49,6 +52,9 @@
 </tr>
     {% for x in data %}
      <tr>
+     <td>
+        {{x.Tid }}
+    </td>
     <td>
         {{x.customer_id }}
     </td>
@@ -66,9 +72,9 @@
         {{ x.status }}
     </td>
 </tr>
-
     {% endfor %}
 </table>
+    {% include 'footer.html' %}
 {% endif %}
 
 </body>

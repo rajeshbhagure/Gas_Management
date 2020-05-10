@@ -51,7 +51,7 @@
                      </tr>
                      <tr>
                          <th>Contact No:</th>
-                         <td><input type="number" readonly value="{{ data.contact }}"></td>
+                         <td><input type="number" readonly value="{{ data.contact }}" name="t6"></td>
                      </tr>
                      <tr>
                          <th>Address:</th>
@@ -66,6 +66,7 @@
                  </form>
              </div>
         </form>
+    {% include 'footer.html' %}
 {% endif %}
 </body>
 </html>

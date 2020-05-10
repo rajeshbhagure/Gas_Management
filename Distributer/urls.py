@@ -42,6 +42,16 @@ urlpatterns = [
     path('view_stock/', views.View_Stock.as_view(), name='view_stock'),
     path('update_view_stock/',views.UpdateViewStock.as_view(),name='update_view_stock'),
     path('delete_view_stock/',views.DeleteViewStock.as_view(),name='delete_view_stock'),
-    path('delete_stock/',views.delete_stock,name='delete_stock')
+    path('delete_stock/',views.delete_stock,name='delete_stock'),
+    path('Agency_Booking/',views.agency_booking,name='Agency_Booking'),
+    path('pending/',views.pending,name='pending'),
+    path('processing/',views.processing,name='processing'),
+    path('delivered/',views.delivered,name='delivered'),
+    path('book_pending/',views.book_pending,name='book_pending'),
+    path('booking_delivered/',views.booking_delivered,name='booking_delivered'),
+    path('book_delivered/',views.book_delivered,name='book_delivered'),
+
+
+
 
 ]

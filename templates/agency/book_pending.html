@@ -1,0 +1,56 @@
+<html>
+<head>
+    <style>
+        th{
+            width: 80px;
+            text-align: center;
+            font-family: "Agency FB";
+            font-size: 20px;
+            color: darkred;
+        }
+        td{
+            width: 120px;
+            text-align: center;
+            font-family: "Arial Rounded MT Bold";
+            font-size: 15px;
+            color: darkblue;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+{% if request.session.user_id %}
+    {% include 'agency/manu.html' %}
+
+    <br>
+        <h1 style="text-align: center;font-family: 'Agency FB';color:darkorchid;font-size: 40px"><b>Cylinder Booking Manage</b></h1>
+<br>
+    <table align="center" border="2">
+        <tr>
+            <th style="text-align: center">Transaction ID</th>
+            <th style="text-align: center">Customer ID</th>
+            <th style="text-align: center">Cylinder Type</th>
+            <th style="text-align: center">Cust Name</th>
+            <th style="text-align: center">Booking Date</th>
+            <th style="text-align: center;width: 250px">Status</th>
+        </tr>
+    {% for x in data %}
+        <tr>
+            <td>{{ x.Tid }}</td>
+            <td>{{ x.customer_id }}</td>
+            <td>{{ x.cy_type }}</td>
+            <td>{{ x.cust_name }}</td>
+            <td>{{ x.datetime }}</td>
+            <td>
+                <span class="btn btn-info" style="margin-left: 20px" readonly="">Current {{ x.status }}</span>
+                <a href="{% url 'booking_delivered' %}?id={{ x.Tid }}" class="btn btn-danger" style="margin-left: 20px;">Delivered</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+
+    {% include 'footer.html' %}
+{% endif %}
+
+</body>
+</html>
