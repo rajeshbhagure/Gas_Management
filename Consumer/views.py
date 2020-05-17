@@ -68,7 +68,7 @@ class UpdateCust(View):
         return redirect('update_cust')
 
 
-class Booking(View):
+class Bookingxxxxxxxxx(View):
     def get(self,request):
         id=request.GET.get('id')
         res=CustomerModel.objects.get(name=id)
