@@ -1,5 +1,17 @@
+{% load static %}
 <html>
 <head>
+
+
+     <!-- Site CSS -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
+    <!-- Modernizer for Portfolio -->
+    <script src="{% static 'js/modernizer.js' %}"></script>
     <title>
         Update customer
     </title>
@@ -76,5 +88,12 @@
 
 {% include 'footer.html' %}
 {% endif %}
+ <script src="{% static 'js/all.js' %}"></script>
+    <!-- ALL PLUGINS -->
+    <script src="{% static 'js/custom.js' %}"></script>
+    <script src="{% static 'js/portfolio.js' %}"></script>
+    <script src="{% static 'js/hoverdir.js' %}"></script>
+
+
 </body>
 </html>

@@ -92,7 +92,7 @@ class Booking(View):
             #     'Content-Type': "application/x-www-form-urlencoded",
             #     'Cache-Control': "no-cache",
             # }
-            # response = requests.request("POST", url, data=payload, headers=headers)
+            # response = requests.request("POST",url, data=payload, headers=headers)
             # response.json()
             # res=TransactionModel.objects.filter(cust_name=cust_name).latest(booking_date)
             # print(res)

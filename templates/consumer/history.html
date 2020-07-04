@@ -1,3 +1,4 @@
+{% load static %}
 <html>
 <head>
     <style>
@@ -76,6 +77,11 @@
 </table>
     {% include 'footer.html' %}
 {% endif %}
+<script src="{% static 'js/all.js' %}"></script>
+    <!-- ALL PLUGINS -->
+    <script src="{% static 'js/custom.js' %}"></script>
+    <script src="{% static 'js/portfolio.js' %}"></script>
+    <script src="{% static 'js/hoverdir.js' %}"></script>
 
 </body>
 </html>
